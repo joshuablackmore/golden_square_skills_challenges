@@ -51,7 +51,7 @@ class Todos:
 
     def remove(self, item_to_delete):
         # Returns:
-        #   nothing
+        #    "This todo item is not in your list" if item_to_delete not in list
         # Side-effects:
             #removes item_to_delete from self._todos []
             #throws an exception if item_to_delete is not stored in self._todos
@@ -68,6 +68,14 @@ _Make a list of examples of how the class will behave in different situations._
 
 ```python
 # EXAMPLE
+
+"""
+Given a todo item
+#my_todos.add(item) stores the todo
+
+"""
+my_todos = Todos()
+my_todos.add("first todo item")
 
 """
 Given a todo item

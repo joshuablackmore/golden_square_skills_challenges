@@ -30,3 +30,19 @@ def test_Todos_Remove_no_arg_raises_exception():
     with pytest.raises(Exception) as e:
         my_todos.remove(None)
     assert str(e.value) == "No remove item entered, please enter an item to remove"
+    
+
+def test_Todos_display_todos_returns_empty_list_of_todos():
+    my_todos = Todos()
+    result = my_todos.display_todos()
+    assert result == []
+    
+def test_Todos_display_todos_returns_a_list_of_3_todos():
+    my_todos = Todos()
+    my_todos.add("one")
+    my_todos.add("two")
+    my_todos.add("three")
+    my_todos.add("four")
+    my_todos.remove("two")
+    result = my_todos.display_todos()
+    assert result == ["one", "three", "four"]
