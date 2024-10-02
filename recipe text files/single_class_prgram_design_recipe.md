@@ -77,6 +77,8 @@ Given a todo item
 my_todos = Todos()
 my_todos.add("first todo item")
 
+tick
+
 """
 Given a todo item
 #my_todos.add(item) stores the todo
