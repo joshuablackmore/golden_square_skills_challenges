@@ -13,7 +13,7 @@ class LetterCounter:
             if not char.isalpha():
                 continue
             counter[char] = counter.get(char, 0) + 1
-            print('counter[char]:    ',counter)
+            # print('counter[char]:    ',counter)
             if counter[char] > most_common_count:
                 # print(counter[char])
                 most_common = char
