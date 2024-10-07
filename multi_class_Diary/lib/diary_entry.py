@@ -11,6 +11,8 @@ class DiaryEntry:
         self.title = title
         self.contents = contents
         self.reading_chunk_so_far = 0
+        if len(str(contents)) < 1:
+            raise(Exception("Please add some text. Must be a minimum of one word"))
     def count_words(self):
         # Returns:
         #   An integer representing the number of words in the contents

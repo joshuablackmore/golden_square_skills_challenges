@@ -1,14 +1,19 @@
-from xmlrpc.client import Boolean
 from lib.diary_entry import DiaryEntry
 
 import pytest
 
 
-def test_diary_entry_instnace():
+def test_diary_entry_instance():
     diary_entry = DiaryEntry("my title", "contents of entry")
     assert isinstance(diary_entry, DiaryEntry)
     assert diary_entry.title == "my title"
     assert diary_entry.contents == "contents of entry"
+    
+def test_diary_entry_at_least_one_word_in_contents():
+    
+    with pytest.raises(Exception) as e:
+        diary_entry = DiaryEntry("my title", "")
+    assert str(e.value) == "Please add some text. Must be a minimum of one word"
     
 def test_diary_count_words():
     diary_entry = DiaryEntry("my title", "contents of entry")
@@ -16,7 +21,7 @@ def test_diary_count_words():
     
         
     
-@pytest.mark.parametrize("none_valid_inputs", [None, float,'1',[1],Boolean])
+@pytest.mark.parametrize("none_valid_inputs", [None, float,'1',[1],bool])
 def test_reading_time_invalid_inputs_exception(none_valid_inputs):
     diary_entry = DiaryEntry("my title", "contents of entry")
     with pytest.raises(Exception) as e:
