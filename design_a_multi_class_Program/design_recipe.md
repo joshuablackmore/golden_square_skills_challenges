@@ -110,7 +110,7 @@ _Make a list of examples of how the class will behave in different situations._
 
 ```python
 # EXAMPLE
-Todo_List() tests
+Todo() tests
 """
 Given a todo item
 #instance stores the todo and complete = false
