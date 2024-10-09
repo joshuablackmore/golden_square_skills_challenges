@@ -1,8 +1,7 @@
 from lib.diary import *
 from lib.diary_entry import *
 from lib.todo import *
-
-
+from lib.todo_list import *
 
 def test_add_diary_takes_diary_entry_instance_and_stores_in_entries():
     diary = Diary()
@@ -24,10 +23,13 @@ def test_add_diary_extracts_any_phone_number_and_stores_in_phonenumber_list():
 def test_add_todo_adds_new_todo_instance_to_diary_todos_list():
     todo1 = Todo("do the laundy")
     todo2 = Todo("walk the dog")
-    diary = Diary()
-    diary.add_todo(todo1)
-    diary.add_todo(todo2)
-    assert diary.todos == [todo1, todo2]
+    # diary = Diary()
+    # diary.add_todo(todo1)
+    # diary.add_todo(todo2)
+    todo_list = Todo_list()
+    todo_list.add_todo(todo1)
+    todo_list.add_todo(todo2)
+    assert todo_list.todos == [todo1, todo2]
     
     
 def test_list_diary_entries_returns_list_of_entries():

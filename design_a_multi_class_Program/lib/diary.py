@@ -1,10 +1,10 @@
 import re
+
 class Diary():
     
     def __init__(self):
         self.entries = []
         self.phone_numbers = []
-        self.todos = []
 
 
     def add_diary(self, diary_instance):
@@ -20,10 +20,8 @@ class Diary():
         if match:
             self.phone_numbers.append(match.group(0))
 
-    def add_todo(self, todo_instance):
-        if todo_instance == None:
-            raise Exception("You must add a todo instance to this method")
-        self.todos.append(todo_instance)
+    def list_todos(self, todo_instance):
+        return todo_instance.todos
 
     def list_diary_entries(self):
         return self.entries
