@@ -1,5 +1,6 @@
 import re
 from lib.phone_number_extractor import Phone_Number_extractor
+from lib.readable_entry_finder import Readable_entry_finder
 class Diary():
     
     def __init__(self):
@@ -21,20 +22,8 @@ class Diary():
         return self.entries
 
     def find_best_entry_for_reading_time(self, wpm, minutes):
-        max_words = wpm * minutes
-        entries_user_can_read = []
-        for entries in self.entries:
-            if entries.count_content() <= max_words:
-                # print("entries.count_content:    ", entries.count_content())
-                entries_user_can_read.append(entries)
-        print(entries_user_can_read)
-        if entries_user_can_read == []:
-            return None
-        
-        if len(entries_user_can_read) > 1:
-            return max(entries_user_can_read, key=lambda x: x.count_content())
-        
-        return self.entries[0]
+        readable_entry_finder = Readable_entry_finder()
+        return readable_entry_finder.extract_entry(self.entries,wpm,minutes)
     
     def extract_phone_numbers(self):
         phone_number_extractor = Phone_Number_extractor()
